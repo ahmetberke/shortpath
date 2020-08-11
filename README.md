@@ -39,6 +39,12 @@ from shortpath import Graph
 newGraph = Graph(data="graph.txt")
 ```
 
+or 
+
+```py
+newGraph = Graph(data=data) 
+```
+
 > After that, you will see two metods
 
   > 1) `toEverywhere`
