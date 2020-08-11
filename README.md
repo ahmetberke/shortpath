@@ -18,6 +18,12 @@ E F 1
 ```
 ` format: .txt `
 
+#### Or You Can use list variable
+
+```py
+data = [('A','B',3),('A','C',2),('A','D',9),('B','E',3),('C','D',5),('D','E',2),('E','F',1)]
+```
+
 Graph Image:
 ![Graph Image](https://github.com/ahmetberketuncel/shortpath/blob/master/images/graph_image.png)
 
@@ -59,7 +65,7 @@ newGraph = Graph(data="graph.txt")
   print(newGraph.toANode('A','F'))
   ```
 
-  `Return:` 
+  `Output:` 
   ```py
   3.00
   ```
