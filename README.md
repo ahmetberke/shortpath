@@ -19,12 +19,12 @@ E F 1
 ` format: .txt `
 
 Graph Image:
-![Graph Image](https://github.com/ahmetberketuncel/dijkstra/blob/master/images/graph_image.png)
+![Graph Image](https://github.com/ahmetberketuncel/shortpath/blob/master/images/graph_image.png)
 
 > Then import module in your project
 
 ```py
-from dijkstra import Graph
+from shortpath import Graph
 ```
 
 > Next create a Graph object.

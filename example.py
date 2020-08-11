@@ -1,4 +1,4 @@
-from dijkstra import Graph
+from shortpath import Graph
 
 # Create new graph with graph.txt
 newGraph = Graph(filename="graph.txt")
