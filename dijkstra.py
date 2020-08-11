@@ -25,7 +25,7 @@ class Graph:
         if edge_to not in self.nodes:
           self.nodes.append(edge_to)
     
-  def dijkstra_algorithm(self, start_node):
+  def short_path(self, starting_node):
 
     # The list of nodes has been copied to the unvisited nodes variable
     unvisited_nodes = self.nodes.copy()
@@ -36,16 +36,16 @@ class Graph:
     # creating shortest way dic
     # and entering the list of nodes is assigned a value 0 to the starting node and infinite to the other nodes.
     shortest_way = {
-      node : (0 if node == start_node else float('inf')) for node in self.nodes
+      node : (0 if node == starting_node else float('inf')) for node in self.nodes
     } 
 
     # assigned a neighbor way value to neighbor nodes
     # and neighbor nodes adding to nodes to visit list 
-    for node in self.graph[start_node].keys():
-      shortest_way[node] = self.graph[start_node][node]
+    for node in self.graph[starting_node].keys():
+      shortest_way[node] = self.graph[starting_node][node]
       nodes_to_visit.append(node)
     
-    unvisited_nodes.remove(start_node)
+    unvisited_nodes.remove(starting_node)
 
     while len(unvisited_nodes) != 0:
       # the current node becomes the zeroth item of the list of nodes to visit
@@ -76,6 +76,12 @@ class Graph:
     # Return shortest way dic
     return shortest_way
 
+  def toEverywhere(self, starting_node):
+    return self.short_path(starting_node)
+  
+  def toANode(self, starting_node, ending_node):
+    short_path = self.short_path(starting_node)
+    return short_path[ending_node]
 
 
 
