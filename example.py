@@ -1,7 +1,12 @@
 from shortpath import Graph
 
+data = [('A','B',3),('A','C',2),('A','D',9),('B','E',3),('C','D',5),('D','E',2),('E','F',1)]
+
 # Create new graph with graph.txt
-newGraph = Graph(filename="graph.txt")
+newGraph = Graph(data='graph.txt') 
+
+# or you can use data list.
+# newGraph = Graph(data=data) 
 
 # toEverywhere. With this method, you find the shortest path between the starting node and all other nodes.
 print(newGraph.toEverywhere('A'))

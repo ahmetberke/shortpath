@@ -30,7 +30,7 @@ from shortpath import Graph
 > Next create a Graph object.
 
 ```py
-newGraph = Graph(filename="graph.txt")
+newGraph = Graph(data="graph.txt")
 ```
 
 > After that, you will see two metods

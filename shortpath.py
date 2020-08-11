@@ -1,31 +1,41 @@
 
 class Graph:
   
-  def __init__(self, filename):
-
+  def __init__(self, data):
+    def createGraph(edge_from, edge_to, cost):
+      try:
+        self.graph[edge_from][edge_to] = float(cost)
+      except KeyError:
+        self.graph[edge_from] = {}
+        self.graph[edge_from][edge_to] = float(cost)
+      try:
+        self.graph[edge_to][edge_from] = float(cost)
+      except KeyError:
+        self.graph[edge_to] = {}
+        self.graph[edge_to][edge_from] = float(cost)
+        
+      if edge_from not in self.nodes:
+        self.nodes.append(edge_from)
+      if edge_to not in self.nodes:
+        self.nodes.append(edge_to)
+    
     self.graph = {}
     self.nodes = []
-    with open(filename) as fhandle:
-      for line in fhandle:
-        edge_from, edge_to, cost, *_ = line.strip().split(" ")
-        try:
-          self.graph[edge_from][edge_to] = float(cost)
-        except KeyError:
-          self.graph[edge_from] = {}
-          self.graph[edge_from][edge_to] = float(cost)
-        try:
-          self.graph[edge_to][edge_from] = float(cost)
-        except KeyError:
-          self.graph[edge_to] = {}
-          self.graph[edge_to][edge_from] = float(cost)
-      
-        if edge_from not in self.nodes:
-          self.nodes.append(edge_from)
-
-        if edge_to not in self.nodes:
-          self.nodes.append(edge_to)
+    if type(data) == str:
+      with open(data) as fhandle:
+        for line in fhandle:
+          edge_from, edge_to, cost, *_ = line.strip().split(" ")
+          createGraph(edge_from,edge_to,cost)
     
-  def short_path(self, starting_node):
+    elif type(data) == list:
+      for NodeRS in data:
+        edge_from = NodeRS[0]
+        edge_to = NodeRS[1]
+        cost = NodeRS[2]
+        createGraph(edge_from,edge_to,cost)
+
+
+  def __short_path(self, starting_node):
 
     # The list of nodes has been copied to the unvisited nodes variable
     unvisited_nodes = self.nodes.copy()
@@ -77,10 +87,10 @@ class Graph:
     return shortest_way
 
   def toEverywhere(self, starting_node):
-    return self.short_path(starting_node)
+    return self.__short_path(starting_node)
   
   def toANode(self, starting_node, ending_node):
-    short_path = self.short_path(starting_node)
+    short_path = self.__short_path(starting_node)
     return short_path[ending_node]
 
 
