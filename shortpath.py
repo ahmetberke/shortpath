@@ -92,6 +92,17 @@ class Graph:
   def toANode(self, starting_node, ending_node):
     short_path = self.__short_path(starting_node)
     return short_path[ending_node]
+  
+  def nearestNode(self, node):
+    short_path = self.__short_path(node)
+    del short_path[node]
+    lowest_node = min(short_path.keys(), key=(lambda k: short_path[k]))
+    return lowest_node
+
+  def furthestNode(self, node):
+    short_path = self.__short_path(node)
+    lowest_node = max(short_path.keys(), key=(lambda k: short_path[k]))
+    return lowest_node
 
 
 

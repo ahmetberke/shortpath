@@ -45,9 +45,9 @@ or
 newGraph = Graph(data=data) 
 ```
 
-> After that, you will see two metods
+> After that, you will see two methods
 
-  > 1) `toEverywhere`
+  > 1) toEverywhere
 
   This method calculates the shortest distance between all nodes from the starting node you choose. and returns a dic.
 
@@ -62,7 +62,7 @@ newGraph = Graph(data=data)
   {'A': 0, 'B': 3.0, 'C': 2.0, 'D': 7.0, 'E': 6.0, 'F': 7.0}
   ```
 
-  > 2) `toANode`
+  > 2) toANode
 
   This method calculates the shortest distance between the starting node you chose and the ending node you chose. and returns a float.
 
@@ -75,3 +75,32 @@ newGraph = Graph(data=data)
   ```py
   3.00
   ```
+
+  > 3) nearestNode
+
+  This method returns the node closest to the node of your choice.
+
+  `Code:`
+  ```py
+  print(newGraph.nearestNode('A'))
+  ```
+
+  `Output:`
+  ```py
+  C
+  ```
+
+  > 4) nearestNode
+
+  This method returns the node furthest to the node of your choice.
+
+  `Code:`
+  ```py
+  print(newGraph.furthestNode('A'))
+  ```
+
+  `Output:`
+  ```py
+  D
+  ```
+
